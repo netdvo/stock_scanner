@@ -100,6 +100,10 @@ canvas{width:100%;height:auto;display:block;border-radius:4px}
 </div>
 <div id="loading"></div>
 <div id="source-badge"></div>
+<div style="background:#1a1a2e;border:1px solid #f59e0b33;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:11px;color:#f59e0b;line-height:1.6;display:flex;gap:8px;align-items:flex-start">
+  <span style="font-size:14px;flex-shrink:0">⚠️</span>
+  <span>Prices shown are <strong>end of day (previous close)</strong>. Always verify the live price on your broker before entering any trade. Levels are estimates — not financial advice.</span>
+</div>
 
 <div id="watchlist-box">
   <div id="wl-title">YOUR WATCHLIST — TAP TO SCAN</div>
@@ -399,7 +403,14 @@ function analyze(ticker){
   let bearScore=0;
   if(squeeze)bearScore+=20;if(rsiOB||rsiFalling)bearScore+=25;if(belowMid)bearScore+=20;if(lowerHighs)bearScore+=15;if(trend10<-(atr*2))bearScore+=20;
 
-  const bullish=bullScore>=bearScore;
+  // Improved direction logic
+  // If RSI overbought AND below 50 score -> bearish
+  // If price trend down -> bearish  
+  const rsiOverboughtBear = rsiOB && bullScore < 60;
+  const trendBear = trend10 < -(atr*1.5);
+  const belowMidBear = belowMid && lowerHighs;
+  const bearishOverride = rsiOverboughtBear || trendBear || belowMidBear;
+  const bullish = bearishOverride ? false : bullScore >= bearScore;
   const score=bullish?bullScore:bearScore;
   let color,label,summary;
   if(score>=70){color=bullish?'#10b981':'#ef4444';label=bullish?'STRONG ✓':'BEARISH ✓';summary=bullish?'Strong bullish setup. Good for calls, day trade long, and swing trade.':'Strong bearish setup. Good for puts. Consider sitting out on long trades.';}
