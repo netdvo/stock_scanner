@@ -11,16 +11,22 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:#080c14;color:#e2e8f0;font-family:'Courier New',monospace;padding:16px;max-width:480px;margin:0 auto;min-height:100vh}
 h1{font-size:11px;color:#475569;letter-spacing:0.15em;margin-bottom:16px;margin-top:8px}
-
-/* SEARCH */
-#search-row{display:flex;gap:8px;margin-bottom:20px}
+#search-row{display:flex;gap:8px;margin-bottom:16px}
 #ticker{background:#0d1321;border:1px solid #1e293b;color:#e2e8f0;padding:14px 16px;font-family:inherit;font-size:18px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;border-radius:10px;flex:1;outline:none;-webkit-appearance:none}
 #scan-btn{background:#10b981;border:none;color:#000;padding:14px 20px;font-family:inherit;font-size:15px;font-weight:700;border-radius:10px;cursor:pointer;white-space:nowrap;min-width:80px}
-#loading{font-size:12px;color:#475569;text-align:center;padding:8px 0}
+#loading{font-size:12px;color:#475569;text-align:center;padding:6px 0;min-height:20px}
+#source-badge{font-size:10px;text-align:center;padding:2px 0 6px;color:#334155;display:none}
+
+/* WATCHLIST */
+#watchlist-box{background:#0d1321;border-radius:12px;border:1px solid #1e293b;padding:14px;margin-bottom:16px}
+#wl-title{font-size:10px;color:#475569;letter-spacing:0.1em;margin-bottom:10px}
+#wl-chips{display:flex;flex-wrap:wrap;gap:8px}
+.wl-chip{background:#080c14;border:1px solid #1e293b;border-radius:8px;padding:10px 16px;font-family:inherit;font-size:14px;font-weight:700;color:#94a3b8;cursor:pointer;letter-spacing:0.08em}
+.wl-chip:active{background:#1e293b}
 
 /* VERDICT */
 #verdict{display:none;background:#0d1321;border-radius:12px;padding:16px;margin-bottom:14px;border:1px solid #1e293b}
-#v-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+#v-top{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
 #v-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
 #v-ticker{font-size:24px;font-weight:700}
 #v-price{font-size:20px;color:#64748b}
@@ -37,7 +43,7 @@ h1{font-size:11px;color:#475569;letter-spacing:0.15em;margin-bottom:16px;margin-
 #pills{display:flex;flex-direction:column;gap:5px}
 .pill{font-size:11px;padding:5px 10px;border-radius:6px;border:1px solid;display:flex;align-items:center;gap:6px}
 
-/* TRADE CARDS — stacked on mobile */
+/* TRADE CARDS */
 #trade-grid{display:none;flex-direction:column;gap:12px;margin-bottom:14px}
 .trade-card{border-radius:12px;border:1px solid;padding:16px}
 .tc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
@@ -45,10 +51,8 @@ h1{font-size:11px;color:#475569;letter-spacing:0.15em;margin-bottom:16px;margin-
 .tc-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px}
 .tc-sub{font-size:11px;color:#475569;margin-bottom:14px}
 .level-row{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.3);border-radius:8px;padding:12px 14px;margin-bottom:6px}
-.level-left{}
 .level-label{font-size:10px;letter-spacing:0.08em;opacity:0.55;margin-bottom:2px}
 .level-val{font-size:20px;font-weight:700}
-.level-right{text-align:right}
 .level-pct{font-size:12px;opacity:0.45}
 .rr-row{display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.3);border-radius:8px;padding:10px 14px;margin-top:6px}
 .rr-lbl{font-size:10px;opacity:0.45;width:50px;flex-shrink:0}
@@ -56,6 +60,22 @@ h1{font-size:11px;color:#475569;letter-spacing:0.15em;margin-bottom:16px;margin-
 .rr-fill{height:100%;border-radius:3px}
 .rr-val{font-size:13px;font-weight:700;min-width:44px;text-align:right}
 .tc-rule{font-size:11px;line-height:1.6;color:#64748b;border-top:1px solid rgba(255,255,255,0.05);padding-top:12px;margin-top:12px}
+
+/* OPTIONS SECTION */
+#options-section{display:none;margin-bottom:14px}
+.opt-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.opt-header-title{font-size:13px;font-weight:700;letter-spacing:0.06em}
+.opt-direction-badge{font-size:14px;font-weight:700;padding:5px 16px;border-radius:6px;letter-spacing:0.1em}
+.opt-card{border-radius:12px;border:1px solid;padding:14px;margin-bottom:10px}
+.opt-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.opt-card-title{font-size:11px;font-weight:700;letter-spacing:0.1em}
+.opt-card-expiry{font-size:11px;font-weight:700;padding:3px 10px;border-radius:5px}
+.opt-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px}
+.opt-box{background:rgba(0,0,0,0.3);border-radius:8px;padding:10px 8px;text-align:center}
+.opt-lbl{font-size:9px;letter-spacing:0.08em;opacity:0.5;margin-bottom:3px}
+.opt-val{font-size:16px;font-weight:700}
+.opt-sub{font-size:9px;opacity:0.4;margin-top:2px}
+.opt-rule{font-size:11px;line-height:1.6;color:#64748b;border-top:1px solid rgba(255,255,255,0.05);padding-top:10px}
 
 /* CHART */
 #chart-box{background:#0d1321;border-radius:12px;border:1px solid #1e293b;padding:14px;margin-bottom:14px}
@@ -70,25 +90,17 @@ canvas{width:100%;height:auto;display:block;border-radius:4px}
 .ci-dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
 .ci-name{font-size:12px;font-weight:700;margin-bottom:3px}
 .ci-detail{font-size:11px;color:#64748b;line-height:1.5}
-
-/* WATCHLIST */
-#watchlist-box{background:#0d1321;border-radius:12px;border:1px solid #1e293b;padding:14px;margin-bottom:24px}
-#wl-title{font-size:10px;color:#475569;letter-spacing:0.1em;margin-bottom:10px}
-#wl-chips{display:flex;flex-wrap:wrap;gap:8px}
-.wl-chip{background:#080c14;border:1px solid #1e293b;border-radius:8px;padding:8px 14px;font-family:inherit;font-size:13px;font-weight:700;color:#94a3b8;cursor:pointer;letter-spacing:0.08em;transition:all 0.15s}
-.wl-chip:active{background:#1e293b}
 </style>
 </head>
 <body>
-<h1>DAY TRADE &amp; SWING TRADE SCANNER</h1>
-
+<h1>DAY TRADE · SWING TRADE · OPTIONS SCANNER</h1>
 <div id="search-row">
   <input type="text" id="ticker" placeholder="TICKER" maxlength="6" autocomplete="off" autocorrect="off" autocapitalize="characters" onkeydown="if(event.key==='Enter'){this.blur();runScan()}"/>
   <button id="scan-btn" onclick="runScan()">SCAN</button>
 </div>
 <div id="loading"></div>
+<div id="source-badge"></div>
 
-<!-- WATCHLIST QUICK BUTTONS -->
 <div id="watchlist-box">
   <div id="wl-title">YOUR WATCHLIST — TAP TO SCAN</div>
   <div id="wl-chips">
@@ -97,9 +109,13 @@ canvas{width:100%;height:auto;display:block;border-radius:4px}
     <button class="wl-chip" onclick="quickScan('MP')">MP</button>
     <button class="wl-chip" onclick="quickScan('USAR')">USAR</button>
     <button class="wl-chip" onclick="quickScan('ASTS')">ASTS</button>
+    <button class="wl-chip" onclick="quickScan('AMD')">AMD</button>
     <button class="wl-chip" onclick="quickScan('SPY')">SPY</button>
     <button class="wl-chip" onclick="quickScan('NVDA')">NVDA</button>
     <button class="wl-chip" onclick="quickScan('TSLA')">TSLA</button>
+    <button class="wl-chip" onclick="quickScan('AAPL')">AAPL</button>
+    <button class="wl-chip" onclick="quickScan('QQQ')">QQQ</button>
+    <button class="wl-chip" onclick="quickScan('META')">META</button>
   </div>
 </div>
 
@@ -114,65 +130,79 @@ canvas{width:100%;height:auto;display:block;border-radius:4px}
 </div>
 
 <div id="score-box">
-  <div id="score-top">
-    <div id="score-lbl">SETUP STRENGTH</div>
-    <div id="score-num"></div>
-  </div>
+  <div id="score-top"><div id="score-lbl">SETUP STRENGTH</div><div id="score-num"></div></div>
   <div id="score-track"><div id="score-fill"></div></div>
   <div id="pills"></div>
 </div>
 
 <div id="trade-grid">
   <div class="trade-card" id="day-card">
-    <div class="tc-top">
-      <div class="tc-title">DAY TRADE</div>
-      <div class="tc-badge" id="d-badge">IN &amp; OUT TODAY</div>
-    </div>
-    <div class="tc-sub">Enter near open — exit before market close</div>
-    <div class="level-row">
-      <div class="level-left"><div class="level-label">ENTRY</div><div class="level-val" id="d-entry" style="color:#10b981">—</div></div>
-      <div class="level-right"><div class="level-pct" id="d-entry-note"></div></div>
-    </div>
-    <div class="level-row">
-      <div class="level-left"><div class="level-label">STOP LOSS</div><div class="level-val" id="d-stop" style="color:#ef4444">—</div></div>
-      <div class="level-right"><div class="level-pct" id="d-stop-pct"></div></div>
-    </div>
-    <div class="level-row">
-      <div class="level-left"><div class="level-label">TARGET</div><div class="level-val" id="d-target" style="color:#06b6d4">—</div></div>
-      <div class="level-right"><div class="level-pct" id="d-target-pct"></div></div>
-    </div>
-    <div class="rr-row">
-      <div class="rr-lbl">R/R</div>
-      <div class="rr-track"><div class="rr-fill" id="d-rr-fill"></div></div>
-      <div class="rr-val" id="d-rr-val"></div>
-    </div>
+    <div class="tc-top"><div class="tc-title">DAY TRADE</div><div class="tc-badge" id="d-badge">IN &amp; OUT TODAY</div></div>
+    <div class="tc-sub">Buy shares near open — sell before 4pm close</div>
+    <div class="level-row"><div><div class="level-label">ENTRY</div><div class="level-val" id="d-entry" style="color:#10b981">—</div></div><div style="text-align:right"><div class="level-pct" id="d-entry-note"></div></div></div>
+    <div class="level-row"><div><div class="level-label">STOP LOSS</div><div class="level-val" id="d-stop" style="color:#ef4444">—</div></div><div style="text-align:right"><div class="level-pct" id="d-stop-pct"></div></div></div>
+    <div class="level-row"><div><div class="level-label">TARGET</div><div class="level-val" id="d-target" style="color:#06b6d4">—</div></div><div style="text-align:right"><div class="level-pct" id="d-target-pct"></div></div></div>
+    <div class="rr-row"><div class="rr-lbl">R/R</div><div class="rr-track"><div class="rr-fill" id="d-rr-fill"></div></div><div class="rr-val" id="d-rr-val"></div></div>
     <div class="tc-rule" id="d-rule"></div>
   </div>
-
   <div class="trade-card" id="swing-card">
-    <div class="tc-top">
-      <div class="tc-title">SWING TRADE</div>
-      <div class="tc-badge" style="background:rgba(139,92,246,0.2);color:#a78bfa">HOLD 3–10 DAYS</div>
-    </div>
-    <div class="tc-sub">Buy today — hold days to weeks for the full move</div>
-    <div class="level-row">
-      <div class="level-left"><div class="level-label">ENTRY</div><div class="level-val" id="s-entry" style="color:#10b981">—</div></div>
-      <div class="level-right"><div class="level-pct" id="s-entry-note"></div></div>
-    </div>
-    <div class="level-row">
-      <div class="level-left"><div class="level-label">STOP LOSS</div><div class="level-val" id="s-stop" style="color:#ef4444">—</div></div>
-      <div class="level-right"><div class="level-pct" id="s-stop-pct"></div></div>
-    </div>
-    <div class="level-row">
-      <div class="level-left"><div class="level-label">TARGET</div><div class="level-val" id="s-target" style="color:#06b6d4">—</div></div>
-      <div class="level-right"><div class="level-pct" id="s-target-pct"></div></div>
-    </div>
-    <div class="rr-row">
-      <div class="rr-lbl">R/R</div>
-      <div class="rr-track"><div class="rr-fill" id="s-rr-fill"></div></div>
-      <div class="rr-val" id="s-rr-val"></div>
-    </div>
+    <div class="tc-top"><div class="tc-title">SWING TRADE</div><div class="tc-badge" style="background:rgba(139,92,246,0.2);color:#a78bfa">HOLD 3–10 DAYS</div></div>
+    <div class="tc-sub">Buy shares today — hold days to weeks</div>
+    <div class="level-row"><div><div class="level-label">ENTRY</div><div class="level-val" id="s-entry" style="color:#10b981">—</div></div><div style="text-align:right"><div class="level-pct" id="s-entry-note"></div></div></div>
+    <div class="level-row"><div><div class="level-label">STOP LOSS</div><div class="level-val" id="s-stop" style="color:#ef4444">—</div></div><div style="text-align:right"><div class="level-pct" id="s-stop-pct"></div></div></div>
+    <div class="level-row"><div><div class="level-label">TARGET</div><div class="level-val" id="s-target" style="color:#06b6d4">—</div></div><div style="text-align:right"><div class="level-pct" id="s-target-pct"></div></div></div>
+    <div class="rr-row"><div class="rr-lbl">R/R</div><div class="rr-track"><div class="rr-fill" id="s-rr-fill"></div></div><div class="rr-val" id="s-rr-val"></div></div>
     <div class="tc-rule" id="s-rule"></div>
+  </div>
+</div>
+
+<!-- OPTIONS SECTION - 3 timeframes -->
+<div id="options-section">
+  <div class="opt-header">
+    <div class="opt-header-title">OPTIONS PLAYS</div>
+    <div class="opt-direction-badge" id="opt-dir-badge">—</div>
+  </div>
+
+  <!-- 0DTE -->
+  <div class="opt-card" id="opt-0dte">
+    <div class="opt-card-top">
+      <div class="opt-card-title">SAME DAY (0DTE)</div>
+      <div class="opt-card-expiry" id="opt-0dte-date">Expires today</div>
+    </div>
+    <div class="opt-grid">
+      <div class="opt-box"><div class="opt-lbl">TYPE</div><div class="opt-val" id="o0-type">—</div><div class="opt-sub" id="o0-type-sub">—</div></div>
+      <div class="opt-box"><div class="opt-lbl">STRIKE</div><div class="opt-val" id="o0-strike">—</div><div class="opt-sub">ATM</div></div>
+      <div class="opt-box"><div class="opt-lbl">TARGET</div><div class="opt-val" id="o0-target">—</div><div class="opt-sub" id="o0-target-pct">—</div></div>
+    </div>
+    <div class="opt-rule" id="o0-rule"></div>
+  </div>
+
+  <!-- 1 WEEK -->
+  <div class="opt-card" id="opt-1wk">
+    <div class="opt-card-top">
+      <div class="opt-card-title">1 WEEK OUT</div>
+      <div class="opt-card-expiry" id="opt-1wk-date">—</div>
+    </div>
+    <div class="opt-grid">
+      <div class="opt-box"><div class="opt-lbl">TYPE</div><div class="opt-val" id="o1-type">—</div><div class="opt-sub" id="o1-type-sub">—</div></div>
+      <div class="opt-box"><div class="opt-lbl">STRIKE</div><div class="opt-val" id="o1-strike">—</div><div class="opt-sub">ATM</div></div>
+      <div class="opt-box"><div class="opt-lbl">TARGET</div><div class="opt-val" id="o1-target">—</div><div class="opt-sub" id="o1-target-pct">—</div></div>
+    </div>
+    <div class="opt-rule" id="o1-rule"></div>
+  </div>
+
+  <!-- 2 WEEKS -->
+  <div class="opt-card" id="opt-2wk">
+    <div class="opt-card-top">
+      <div class="opt-card-title">2 WEEKS OUT</div>
+      <div class="opt-card-expiry" id="opt-2wk-date">—</div>
+    </div>
+    <div class="opt-grid">
+      <div class="opt-box"><div class="opt-lbl">TYPE</div><div class="opt-val" id="o2-type">—</div><div class="opt-sub" id="o2-type-sub">—</div></div>
+      <div class="opt-box"><div class="opt-lbl">STRIKE</div><div class="opt-val" id="o2-strike">—</div><div class="opt-sub">slightly OTM</div></div>
+      <div class="opt-box"><div class="opt-lbl">TARGET</div><div class="opt-val" id="o2-target">—</div><div class="opt-sub" id="o2-target-pct">—</div></div>
+    </div>
+    <div class="opt-rule" id="o2-rule"></div>
   </div>
 </div>
 
@@ -199,34 +229,101 @@ function quickScan(t){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+// Get next Friday from today
+function getNextFriday(weeksAhead){
+  const d=new Date();
+  const day=d.getDay();
+  const daysUntilFriday=((5-day)+7)%7||7;
+  d.setDate(d.getDate()+daysUntilFriday+(weeksAhead-1)*7);
+  return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+}
+
+async function fetchCandles(ticker){
+  const sources=[
+    {name:'Yahoo Finance',fetch:async()=>{
+      const url='https://query1.finance.yahoo.com/v8/finance/chart/'+ticker+'?interval=1d&range=6mo';
+      const res=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(8000)});
+      const json=await res.json();
+      const result=json?.chart?.result?.[0];
+      if(!result||!result.indicators?.quote?.[0])throw new Error('No data');
+      const q=result.indicators.quote[0];
+      const out=[];
+      for(let i=0;i<result.timestamp.length;i++){
+        if(q.open[i]!=null&&q.close[i]!=null&&q.high[i]!=null&&q.low[i]!=null&&q.volume[i]!=null)
+          out.push({o:q.open[i],c:q.close[i],h:q.high[i],l:q.low[i],v:q.volume[i]});
+      }
+      if(out.length<30)throw new Error('Not enough');
+      return out;
+    }},
+    {name:'Yahoo Finance #2',fetch:async()=>{
+      const url='https://query2.finance.yahoo.com/v8/finance/chart/'+ticker+'?interval=1d&range=6mo';
+      const res=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(8000)});
+      const json=await res.json();
+      const result=json?.chart?.result?.[0];
+      if(!result||!result.indicators?.quote?.[0])throw new Error('No data');
+      const q=result.indicators.quote[0];
+      const out=[];
+      for(let i=0;i<result.timestamp.length;i++){
+        if(q.open[i]!=null&&q.close[i]!=null&&q.high[i]!=null&&q.low[i]!=null&&q.volume[i]!=null)
+          out.push({o:q.open[i],c:q.close[i],h:q.high[i],l:q.low[i],v:q.volume[i]});
+      }
+      if(out.length<30)throw new Error('Not enough');
+      return out;
+    }},
+    {name:'Finnhub',fetch:async()=>{
+      const to=Math.floor(Date.now()/1000);
+      const from=to-60*60*24*180;
+      const url='https://finnhub.io/api/v1/stock/candle?symbol='+ticker+'&resolution=D&from='+from+'&to='+to+'&token=demo';
+      const res=await fetch(url,{signal:AbortSignal.timeout(8000)});
+      const json=await res.json();
+      if(json.s!=='ok'||!json.c||json.c.length<30)throw new Error('No data');
+      return json.c.map((_,i)=>({o:json.o[i],c:json.c[i],h:json.h[i],l:json.l[i],v:json.v[i]}));
+    }},
+    {name:'Stooq',fetch:async()=>{
+      const url='https://stooq.com/q/d/l/?s='+ticker.toLowerCase()+'.us&i=d';
+      const res=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(8000)});
+      const text=await res.text();
+      const lines=text.trim().split('\n').slice(1);
+      if(lines.length<30)throw new Error('Not enough');
+      const out=lines.slice(-180).map(l=>{const p=l.split(',');return{o:parseFloat(p[1]),h:parseFloat(p[2]),l:parseFloat(p[3]),c:parseFloat(p[4]),v:parseFloat(p[5]||0)};}).filter(c=>!isNaN(c.c)&&c.c>0);
+      if(out.length<30)throw new Error('Not enough');
+      return out;
+    }}
+  ];
+  for(let i=0;i<sources.length;i++){
+    try{
+      setStatus('Loading via '+sources[i].name+'...');
+      const data=await sources[i].fetch();
+      showSource('Source: '+sources[i].name);
+      return data;
+    }catch(e){
+      if(i<sources.length-1){setStatus('Trying next source...');await new Promise(r=>setTimeout(r,500));}
+    }
+  }
+  throw new Error('All sources failed');
+}
+
 async function runScan(){
   const ticker=document.getElementById('ticker').value.trim().toUpperCase();
   if(!ticker)return;
-  document.getElementById('loading').textContent='Loading '+ticker+'...';
   document.getElementById('verdict').style.display='none';
   document.getElementById('score-box').style.display='none';
   document.getElementById('trade-grid').style.display='none';
+  document.getElementById('options-section').style.display='none';
+  document.getElementById('source-badge').style.display='none';
   try{
-    const url='https://query1.finance.yahoo.com/v8/finance/chart/'+ticker+'?interval=1d&range=6mo';
-    const res=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url));
-    const json=await res.json();
-    const result=json?.chart?.result?.[0];
-    if(!result||!result.indicators?.quote?.[0]){document.getElementById('loading').textContent='Not found. Try AAPL, TSLA, SPY';return;}
-    const q=result.indicators.quote[0];
-    candles=[];
-    for(let i=0;i<result.timestamp.length;i++){
-      if(q.open[i]!=null&&q.close[i]!=null&&q.high[i]!=null&&q.low[i]!=null&&q.volume[i]!=null)
-        candles.push({o:q.open[i],c:q.close[i],h:q.high[i],l:q.low[i],v:q.volume[i]});
-    }
-    if(candles.length<30){document.getElementById('loading').textContent='Not enough data';return;}
+    candles=await fetchCandles(ticker);
     bbData=computeBB(candles);
     rsiData=computeRSI(candles);
-    document.getElementById('loading').textContent='';
+    setStatus('');
     analyze(ticker);
     drawAll();
     setTimeout(()=>document.getElementById('verdict').scrollIntoView({behavior:'smooth'}),100);
-  }catch(e){document.getElementById('loading').textContent='Error — try again';}
+  }catch(e){setStatus('Could not load '+ticker+'. Check ticker and try again.');}
 }
+
+function setStatus(t){document.getElementById('loading').textContent=t;}
+function showSource(t){const el=document.getElementById('source-badge');el.textContent=t;el.style.display='block';}
 
 function computeBB(c,p=20){
   return c.map((_,i)=>{
@@ -260,12 +357,21 @@ function calcATR(idx,period=14){
 
 function fmt(n){return'$'+n.toFixed(2);}
 function pct(a,b){return((b-a)/Math.abs(a)*100).toFixed(1)+'%';}
+function strike(price,bull){
+  const s=5;
+  return bull?Math.ceil(price/s)*s:Math.floor(price/s)*s;
+}
+function otmStrike(price,bull,atr){
+  const s=5;
+  return bull?Math.ceil((price+atr*0.5)/s)*s:Math.floor((price-atr*0.5)/s)*s;
+}
 
 function analyze(ticker){
   const n=candles.length;
   const last=candles[n-1];
   const atr=calcATR(n-1,14);
   const atrDay=atr*0.5;
+
   const bwNow=bbData[n-1].bw||0;
   const bwSlice=bbData.slice(Math.max(0,n-20),n-1).filter(b=>b.bw!=null);
   const bwAvg=bwSlice.length?bwSlice.reduce((s,b)=>s+b.bw,0)/bwSlice.length:bwNow;
@@ -275,20 +381,32 @@ function analyze(ticker){
   const rsiRising=rsiNow>rsi10;
   const rsiGood=rsiRising&&rsiNow>42&&rsiNow<72;
   const rsiOB=rsiNow>=72;
+  const rsiFalling=rsiNow<rsi10-3;
   const avgVol=candles.slice(0,Math.min(40,n)).reduce((s,c)=>s+c.v,0)/Math.min(40,n);
   const recentVol=candles.slice(n-5,n).reduce((s,c)=>s+c.v,0)/5;
   const volUp=recentVol>avgVol*1.2;
   const volRatio=recentVol/avgVol;
   const aboveMid=!!(bbData[n-1].mid&&last.c>bbData[n-1].mid);
+  const belowMid=!!(bbData[n-1].mid&&last.c<bbData[n-1].mid);
   const lows=[candles[n-1].l,candles[n-5].l,candles[n-10].l];
   const higherLows=lows[0]>lows[1]&&lows[1]>lows[2];
-  let score=0;
-  if(squeeze)score+=20;if(rsiGood)score+=25;if(volUp)score+=20;if(aboveMid)score+=20;if(higherLows)score+=15;
-  let color,label,summary;
-  if(score>=70){color='#10b981';label='STRONG ✓';summary='Strong setup. Signals aligned. Good for a day trade today and a swing trade this week.';}
-  else if(score>=45){color='#f59e0b';label='DEVELOPING';summary='Developing setup. Day trade with caution. For swing trade wait 1-2 more days for confirmation.';}
-  else{color='#ef4444';label='WAIT ✗';summary='Signals not aligned. Not a good time to enter. Check back in a few days.';}
+  const highs=[candles[n-1].h,candles[n-5].h,candles[n-10].h];
+  const lowerHighs=highs[0]<highs[1]&&highs[1]<highs[2];
+  const trend10=candles[n-1].c-candles[Math.max(0,n-10)].c;
 
+  let bullScore=0;
+  if(squeeze)bullScore+=20;if(rsiGood)bullScore+=25;if(volUp)bullScore+=20;if(aboveMid)bullScore+=20;if(higherLows)bullScore+=15;
+  let bearScore=0;
+  if(squeeze)bearScore+=20;if(rsiOB||rsiFalling)bearScore+=25;if(belowMid)bearScore+=20;if(lowerHighs)bearScore+=15;if(trend10<-(atr*2))bearScore+=20;
+
+  const bullish=bullScore>=bearScore;
+  const score=bullish?bullScore:bearScore;
+  let color,label,summary;
+  if(score>=70){color=bullish?'#10b981':'#ef4444';label=bullish?'STRONG ✓':'BEARISH ✓';summary=bullish?'Strong bullish setup. Good for calls, day trade long, and swing trade.':'Strong bearish setup. Good for puts. Consider sitting out on long trades.';}
+  else if(score>=45){color='#f59e0b';label='DEVELOPING';summary='Setup developing. Caution on 0DTE options — use 1-2 week expiry instead for more time.';}
+  else{color='#ef4444';label='WAIT ✗';summary='Signals not aligned. Skip options today — too risky without a clear setup.';}
+
+  // VERDICT
   document.getElementById('verdict').style.display='block';
   document.getElementById('v-dot').style.cssText='background:'+color+';box-shadow:0 0 8px '+color+';width:14px;height:14px;border-radius:50%;flex-shrink:0';
   document.getElementById('v-ticker').textContent=ticker;
@@ -298,64 +416,138 @@ function analyze(ticker){
   badge.textContent=label;badge.style.background=color+'22';badge.style.color=color;
   document.getElementById('v-text').textContent=summary;
 
+  // SCORE
   document.getElementById('score-box').style.display='block';
   document.getElementById('score-num').textContent=score+'/100';
   document.getElementById('score-num').style.color=color;
   document.getElementById('score-fill').style.cssText='width:'+score+'%;background:'+color;
   const pillsEl=document.getElementById('pills');
   pillsEl.innerHTML='';
-  [{label:'BB Squeeze',pass:squeeze,val:squeeze?'Coiling':'Bands wide'},
-   {label:'RSI',pass:rsiGood,val:'RSI '+Math.round(rsiNow)+(rsiOB?' — overbought':'')},
-   {label:'Volume',pass:volUp,val:'×'+volRatio.toFixed(1)+' avg'},
-   {label:'Above Midline',pass:aboveMid,val:aboveMid?'Yes':'No'},
-   {label:'Higher Lows',pass:higherLows,val:higherLows?'Yes':'No'},
-  ].forEach(p=>{
+  (bullish?[
+    {label:'BB Squeeze',pass:squeeze,val:squeeze?'Coiling':'Wide'},
+    {label:'RSI',pass:rsiGood,val:'RSI '+Math.round(rsiNow)+(rsiOB?' OB':'')},
+    {label:'Volume',pass:volUp,val:'×'+volRatio.toFixed(1)+' avg'},
+    {label:'Above Midline',pass:aboveMid,val:aboveMid?'Yes':'No'},
+    {label:'Higher Lows',pass:higherLows,val:higherLows?'Yes':'No'},
+  ]:[
+    {label:'BB Squeeze',pass:squeeze,val:squeeze?'Coiling':'Wide'},
+    {label:'RSI Falling',pass:rsiFalling||rsiOB,val:'RSI '+Math.round(rsiNow)},
+    {label:'Volume',pass:volUp,val:'×'+volRatio.toFixed(1)+' avg'},
+    {label:'Below Midline',pass:belowMid,val:belowMid?'Yes':'No'},
+    {label:'Lower Highs',pass:lowerHighs,val:lowerHighs?'Yes':'No'},
+  ]).forEach(p=>{
     const el=document.createElement('div');
     const c=p.pass?color:'#475569';
-    el.className='pill';
-    el.style.cssText='color:'+c+';border-color:'+c+'44;background:'+c+'11';
+    el.className='pill';el.style.cssText='color:'+c+';border-color:'+c+'44;background:'+c+'11';
     el.innerHTML='<span style="font-size:13px">'+(p.pass?'✓':'✗')+'</span><span>'+p.label+' — '+p.val+'</span>';
     pillsEl.appendChild(el);
   });
 
+  // DAY TRADE
   document.getElementById('trade-grid').style.display='flex';
   const dc=document.getElementById('day-card');
   dc.style.cssText='border-radius:12px;border:1px solid '+color+'44;padding:16px;background:'+color+'08';
   document.getElementById('d-badge').style.cssText='font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;background:'+color+'22;color:'+color;
   const dEntry=last.c+atrDay*0.08,dStop=last.l-atrDay*0.5,dTarget=dEntry+(dEntry-dStop)*1.5;
-  document.getElementById('d-entry').textContent=fmt(dEntry);
-  document.getElementById('d-entry-note').textContent='Buy near open';
+  document.getElementById('d-entry').textContent=fmt(dEntry);document.getElementById('d-entry').style.color=bullish?'#10b981':'#ef4444';
+  document.getElementById('d-entry-note').textContent=bullish?'Buy near open':'Bearish — see puts below';
   document.getElementById('d-stop').textContent=fmt(dStop);
   document.getElementById('d-stop-pct').textContent=pct(dEntry,dStop)+' risk';
   document.getElementById('d-target').textContent=fmt(dTarget);
   document.getElementById('d-target-pct').textContent='+'+pct(dEntry,dTarget)+' gain';
   document.getElementById('d-rr-fill').style.cssText='width:50%;background:'+color+';height:100%;border-radius:3px';
-  document.getElementById('d-rr-val').style.color=color;
-  document.getElementById('d-rr-val').textContent='1.5:1';
-  document.getElementById('d-rule').textContent='Buy near $'+dEntry.toFixed(2)+' at open. If it drops to $'+dStop.toFixed(2)+' — sell immediately. If it hits $'+dTarget.toFixed(2)+' — take profit. Exit before 4pm no matter what.';
+  document.getElementById('d-rr-val').style.color=color;document.getElementById('d-rr-val').textContent='1.5:1';
+  document.getElementById('d-rule').textContent=bullish?'Buy shares near $'+dEntry.toFixed(2)+' at open. Stop at $'+dStop.toFixed(2)+' — sell immediately if hit. Take profit at $'+dTarget.toFixed(2)+'. Exit before 4pm.':'Bearish day. Best played with PUT options (see below) rather than shorting shares.';
 
+  // SWING TRADE
   const sEntry=last.c+atr*0.05,sStop=last.l-atr*0.6,sTarget=sEntry+(sEntry-sStop)*2.5;
-  document.getElementById('s-entry').textContent=fmt(sEntry);
-  document.getElementById('s-entry-note').textContent='Buy today or tomorrow';
+  document.getElementById('s-entry').textContent=fmt(sEntry);document.getElementById('s-entry').style.color=bullish?'#10b981':'#ef4444';
+  document.getElementById('s-entry-note').textContent=bullish?'Buy today or tomorrow':'Bearish — use 2-week puts';
   document.getElementById('s-stop').textContent=fmt(sStop);
   document.getElementById('s-stop-pct').textContent=pct(sEntry,sStop)+' risk';
   document.getElementById('s-target').textContent=fmt(sTarget);
   document.getElementById('s-target-pct').textContent='+'+pct(sEntry,sTarget)+' gain';
   document.getElementById('s-rr-fill').style.cssText='width:67%;background:#a78bfa;height:100%;border-radius:3px';
-  document.getElementById('s-rr-val').style.color='#a78bfa';
-  document.getElementById('s-rr-val').textContent='2.5:1';
-  document.getElementById('s-rule').textContent='Buy at $'+sEntry.toFixed(2)+'. Set stop alert at $'+sStop.toFixed(2)+'. Hold until $'+sTarget.toFixed(2)+' or 10 days — whichever comes first.';
+  document.getElementById('s-rr-val').style.color='#a78bfa';document.getElementById('s-rr-val').textContent='2.5:1';
+  document.getElementById('s-rule').textContent=bullish?'Buy at $'+sEntry.toFixed(2)+'. Stop at $'+sStop.toFixed(2)+'. Target $'+sTarget.toFixed(2)+'. Hold up to 10 days.':'Bearish swing. Use 2-week PUT options for defined risk instead of shorting shares.';
 
+  // OPTIONS SECTION
+  document.getElementById('options-section').style.display='block';
+  const optColor=bullish?'#10b981':'#ef4444';
+  const optType=bullish?'CALL':'PUT';
+  const optTypeSub=bullish?'price goes UP':'price goes DOWN';
+
+  document.getElementById('opt-dir-badge').textContent='BUY '+optType+'S';
+  document.getElementById('opt-dir-badge').style.cssText='font-size:14px;font-weight:700;padding:5px 16px;border-radius:6px;letter-spacing:0.1em;background:'+optColor+'22;color:'+optColor;
+
+  // Expiry dates
+  const fri1=getNextFriday(1);
+  const fri2=getNextFriday(2);
+
+  // Targets
+  const tgt0=bullish?last.c+(atr*2):last.c-(atr*2);
+  const tgt1=bullish?last.c+(atr*3):last.c-(atr*3);
+  const tgt2=bullish?last.c+(atr*4):last.c-(atr*4);
+
+  // Strike prices
+  const strike0=strike(last.c,bullish);
+  const strike1=strike(last.c,bullish);
+  const strike2=otmStrike(last.c,bullish,atr);
+
+  // Style option cards
+  ['opt-0dte','opt-1wk','opt-2wk'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.style.cssText='border-radius:12px;border:1px solid '+optColor+'25;padding:14px;margin-bottom:10px;background:'+optColor+'05';
+  });
+  ['opt-0dte-date','opt-1wk-date','opt-2wk-date'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    el.style.cssText='font-size:11px;font-weight:700;padding:3px 10px;border-radius:5px;background:'+optColor+'18;color:'+optColor;
+  });
+  document.getElementById('opt-0dte-date').textContent='Expires today';
+  document.getElementById('opt-1wk-date').textContent='Expires '+fri1;
+  document.getElementById('opt-2wk-date').textContent='Expires '+fri2;
+
+  // 0DTE
+  document.getElementById('o0-type').textContent=optType;document.getElementById('o0-type').style.color=optColor;
+  document.getElementById('o0-type-sub').textContent=optTypeSub;
+  document.getElementById('o0-strike').textContent='$'+strike0;document.getElementById('o0-strike').style.color=optColor;
+  document.getElementById('o0-target').textContent=fmt(tgt0);document.getElementById('o0-target').style.color=optColor;
+  document.getElementById('o0-target-pct').textContent=((Math.abs(tgt0-last.c)/last.c)*100).toFixed(1)+'% move';
+  document.getElementById('o0-rule').textContent='0DTE = highest risk, highest reward. Only trade if score is 70+. Buy when stock shows momentum in your direction. Cut the loss immediately if option drops 40%. Take profit when it doubles or stock hits $'+tgt0.toFixed(2)+'.';
+
+  // 1 WEEK
+  document.getElementById('o1-type').textContent=optType;document.getElementById('o1-type').style.color=optColor;
+  document.getElementById('o1-type-sub').textContent=optTypeSub;
+  document.getElementById('o1-strike').textContent='$'+strike1;document.getElementById('o1-strike').style.color=optColor;
+  document.getElementById('o1-target').textContent=fmt(tgt1);document.getElementById('o1-target').style.color=optColor;
+  document.getElementById('o1-target-pct').textContent=((Math.abs(tgt1-last.c)/last.c)*100).toFixed(1)+'% move needed';
+  document.getElementById('o1-rule').textContent='1 week gives more breathing room. Good when score is 45-70. Buy at open, hold through the week. Stop loss: option drops 50%. Take profit: option doubles OR stock hits $'+tgt1.toFixed(2)+'. Sell by Thursday — options lose value fast on Friday.';
+
+  // 2 WEEKS
+  document.getElementById('o2-type').textContent=optType;document.getElementById('o2-type').style.color=optColor;
+  document.getElementById('o2-type-sub').textContent=optTypeSub;
+  document.getElementById('o2-strike').textContent='$'+strike2;document.getElementById('o2-strike').style.color=optColor;
+  document.getElementById('o2-target').textContent=fmt(tgt2);document.getElementById('o2-target').style.color=optColor;
+  document.getElementById('o2-target-pct').textContent=((Math.abs(tgt2-last.c)/last.c)*100).toFixed(1)+'% move needed';
+  document.getElementById('o2-rule').textContent='2 weeks = most forgiving. Slightly OTM strike at $'+strike2+' costs less and gives the stock time to develop. Works even when score is developing (45+). Stop: option loses 50%. Target: option doubles OR stock hits $'+tgt2.toFixed(2)+'. Close by end of week 1 if not moving.';
+
+  // CHECKLIST
   const clEl=document.getElementById('checklist-items');
   clEl.innerHTML='';
-  [{name:'BB Squeeze',pass:squeeze,detail:squeeze?'Bands tightening — volatility coiling before a move.':'Bands still wide. Wait for them to tighten.'},
-   {name:'RSI Momentum',pass:rsiGood,detail:rsiGood?'RSI at '+Math.round(rsiNow)+' — rising, not overbought. Ideal zone.':rsiOB?'RSI at '+Math.round(rsiNow)+' — overbought. May pull back first.':'RSI needs to build above 45.'},
-   {name:'Volume',pass:volUp,detail:volUp?'Volume '+volRatio.toFixed(1)+'x average — buyers stepping in.':'Volume below average. Wait for volume to pick up.'},
-   {name:'Above Midline',pass:aboveMid,detail:aboveMid?'Holding above the BB midline — bulls in control.':'Below midline — wait for price to reclaim it.'},
-   {name:'Higher Lows',pass:higherLows,detail:higherLows?'Each dip holds higher — healthy uptrend base.':'No higher lows yet — base still forming.'},
-  ].forEach(item=>{
-    const div=document.createElement('div');
-    div.className='ci';
+  (bullish?[
+    {name:'BB Squeeze',pass:squeeze,detail:squeeze?'Bands tightening — good for all 3 option timeframes.':'Bands wide — skip 0DTE, use 1-2 week expiry instead.'},
+    {name:'RSI Momentum',pass:rsiGood,detail:rsiGood?'RSI '+Math.round(rsiNow)+' — rising, not overbought. Good for calls.':rsiOB?'RSI '+Math.round(rsiNow)+' overbought — avoid 0DTE calls. Use 1-2 week expiry.':'RSI needs to build above 45 for a solid call setup.'},
+    {name:'Volume',pass:volUp,detail:volUp?'Volume '+volRatio.toFixed(1)+'x avg — strong buyer conviction.':'Low volume — wait for volume to confirm before buying calls.'},
+    {name:'Above Midline',pass:aboveMid,detail:aboveMid?'Above BB midline — bullish control confirmed.':'Below midline — not ideal for calls yet.'},
+    {name:'Higher Lows',pass:higherLows,detail:higherLows?'Higher lows confirmed — good swing and 2-week call setup.':'No higher lows — base still forming, use shorter expiry.'},
+  ]:[
+    {name:'BB Squeeze',pass:squeeze,detail:squeeze?'Bands tightening — good for puts across all timeframes.':'Bands wide — breakdown may not be imminent.'},
+    {name:'RSI Weakening',pass:rsiFalling||rsiOB,detail:(rsiFalling||rsiOB)?'RSI '+Math.round(rsiNow)+' — '+(rsiOB?'overbought, likely to reverse. Good put setup.':'falling, bearish momentum building.'):'RSI neutral — not a strong put signal yet.'},
+    {name:'Volume',pass:volUp,detail:volUp?'High volume — conviction behind the move.':'Low volume — wait for volume before buying puts.'},
+    {name:'Below Midline',pass:belowMid,detail:belowMid?'Below midline — bears in control. Good for puts.':'Still above midline — wait for break below.'},
+    {name:'Lower Highs',pass:lowerHighs,detail:lowerHighs?'Lower highs — distribution. Good 1-2 week put setup.':'No lower highs — bearish structure not fully confirmed.'},
+  ]).forEach(item=>{
+    const div=document.createElement('div');div.className='ci';
     const ic=item.pass?color:'#475569';
     div.innerHTML='<div class="ci-dot" style="background:'+ic+'22;color:'+ic+'">'+(item.pass?'✓':'✗')+'</div><div><div class="ci-name" style="color:'+(item.pass?'#e2e8f0':'#64748b')+'">'+item.name+'</div><div class="ci-detail">'+item.detail+'</div></div>';
     clEl.appendChild(div);
@@ -364,12 +556,9 @@ function analyze(ticker){
 
 function drawAll(){drawMain();drawRSI();drawVol();}
 function drawMain(){
-  const cv=document.getElementById('main-cv');
-  const ctx=cv.getContext('2d');
-  const W=cv.width,H=cv.height;
-  ctx.clearRect(0,0,W,H);
-  const pad={l:46,r:8,t:8,b:16};
-  const cw=W-pad.l-pad.r,ch=H-pad.t-pad.b;
+  const cv=document.getElementById('main-cv');const ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
+  const pad={l:46,r:8,t:8,b:16};const cw=W-pad.l-pad.r,ch=H-pad.t-pad.b;
   const n=candles.length,cw2=cw/n;
   const all=[...candles.flatMap(c=>[c.h,c.l]),...bbData.flatMap(b=>b.upper?[b.upper,b.lower]:[])];
   const minP=Math.min(...all)*0.997,maxP=Math.max(...all)*1.003;
@@ -407,14 +596,11 @@ function drawMain(){
   });
 }
 function drawRSI(){
-  const cv=document.getElementById('rsi-cv');
-  const ctx=cv.getContext('2d');
+  const cv=document.getElementById('rsi-cv');const ctx=cv.getContext('2d');
   const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
-  const pad={l:22,r:4,t:4,b:10};
-  const cw=W-pad.l-pad.r,ch=H-pad.t-pad.b;
+  const pad={l:22,r:4,t:4,b:10};const cw=W-pad.l-pad.r,ch=H-pad.t-pad.b;
   const n=rsiData.length,cw2=cw/n;
-  const toY=v=>pad.t+ch-(v/100)*ch;
-  const toX=i=>pad.l+i*cw2+cw2*0.5;
+  const toY=v=>pad.t+ch-(v/100)*ch;const toX=i=>pad.l+i*cw2+cw2*0.5;
   [30,70].forEach(lv=>{
     ctx.strokeStyle=lv===70?'rgba(239,68,68,0.12)':'rgba(16,185,129,0.12)';ctx.lineWidth=1;
     ctx.beginPath();ctx.moveTo(pad.l,toY(lv));ctx.lineTo(W-pad.r,toY(lv));ctx.stroke();
@@ -426,11 +612,9 @@ function drawRSI(){
   ctx.strokeStyle='#f59e0b';ctx.lineWidth=1.5;ctx.stroke();
 }
 function drawVol(){
-  const cv=document.getElementById('vol-cv');
-  const ctx=cv.getContext('2d');
+  const cv=document.getElementById('vol-cv');const ctx=cv.getContext('2d');
   const W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);
-  const pad={l:4,r:4,t:4,b:10};
-  const cw=W-pad.l-pad.r,ch=H-pad.t-pad.b;
+  const pad={l:4,r:4,t:4,b:10};const cw=W-pad.l-pad.r,ch=H-pad.t-pad.b;
   const n=candles.length,cw2=cw/n;
   const maxV=Math.max(...candles.map(c=>c.v));
   const avgV=candles.slice(0,Math.min(40,n)).reduce((s,c)=>s+c.v,0)/Math.min(40,n);
@@ -438,10 +622,8 @@ function drawVol(){
   ctx.beginPath();ctx.moveTo(pad.l,avgY);ctx.lineTo(W-pad.r,avgY);
   ctx.strokeStyle='rgba(255,255,255,0.15)';ctx.lineWidth=1;ctx.setLineDash([2,2]);ctx.stroke();ctx.setLineDash([]);
   candles.forEach((c,i)=>{
-    const bw=Math.max(1,cw2*0.7);
-    const x=pad.l+i*cw2+(cw2-bw)/2;
-    const barH=Math.max(1,(c.v/maxV)*ch);
-    const rec=i>=n-5;
+    const bw=Math.max(1,cw2*0.7);const x=pad.l+i*cw2+(cw2-bw)/2;
+    const barH=Math.max(1,(c.v/maxV)*ch);const rec=i>=n-5;
     ctx.fillStyle=c.c>=c.o?(rec?'rgba(16,185,129,0.95)':'rgba(16,185,129,0.4)'):(rec?'rgba(239,68,68,0.95)':'rgba(239,68,68,0.4)');
     ctx.fillRect(x,pad.t+ch-barH,bw,barH);
   });
